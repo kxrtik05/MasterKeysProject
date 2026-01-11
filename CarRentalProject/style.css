@@ -1,0 +1,383 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #e63946; /* A sharp, fiery red */
+    --dark-bg: #121212;
+    --card-bg: #1E1E1E;
+    --text-color: #F1F1F1;
+    --text-muted: #AAAAAA;
+    --font-family: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* For the "Browse Collection" button */
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+section {
+    padding: 5rem 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #FFF;
+    font-size: 1.1rem;
+}
+
+.btn-primary:hover {
+    background-color: #FFF;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: #FFF;
+}
+
+
+/* --- Header & Navigation --- */
+.main-header {
+    background-color: var(--dark-bg);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FFF;
+    letter-spacing: 1px;
+}
+
+.logo:hover {
+    color: var(--primary-color);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.main-nav a {
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--primary-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 90vh;
+    background: linear-gradient(rgba(15, 15, 15, 0.7), rgba(28, 28, 28, 0.7)), url('assets/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: #FFF;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+}
+
+/* --- Logo Bar Section --- */
+.logo-bar {
+    padding: 2.5rem 0; /* A bit of vertical space */
+    background-color: var(--dark-bg);
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.logo-slider {
+    width: 100%;
+    overflow: hidden; /* This hides the logos that are off-screen */
+    
+    /* This creates the fade-out effect on the left and right edges */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.logo-track {
+    display: flex;
+    /* We have 11 logos, and we give each 180px of space */
+    /* 11 logos * 2 sets = 22. */
+    width: calc(180px * 22); 
+    
+    /* This is the animation! */
+    animation: scroll 30s linear infinite;
+}
+
+/* Pause the animation when the user hovers over it */
+.logo-slider:hover .logo-track {
+    animation-play-state: paused;
+}
+
+/* This is the individual logo 'box' */
+.logo-track .slide {
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* This styles the logo image itself */
+.logo-track img {
+    height: 40px; /* Adjust height to your liking */
+    width: auto;
+    max-width: 130px;
+    
+    /* This makes the logos gray, as in your screenshot */
+    
+    transition: filter 0.3s ease;
+}
+
+/* On hover, show the full-color logo */
+.logo-track img:hover {
+    filter: grayscale(0) opacity(1);
+    cursor: pointer;
+}
+
+/* This is the @keyframe animation that moves the track */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* This moves the track to the left by the width of the *first* set of logos */
+        /* (11 logos * 180px) = -1980px */
+        transform: translateX(calc(-180px * 12));
+    }
+}
+
+/* --- Featured Cars Section --- */
+.featured-cars {
+    background-color: var(--dark-bg);
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+.car-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;       
+    max-width: 400px;  
+}
+
+.car-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.car-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+
+.card-content .price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+
+
+
+
+/* --- How It Works Section --- */
+.how-it-works {
+    background-color: var(--card-bg);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.step span {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.step h3 {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+
+.step p {
+    color: var(--text-muted);
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: #000;
+    color: var(--text-muted);
+    padding: 3rem 0;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.main-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links a {
+    color: var(--text-muted);
+    margin-left: 1.5rem;
+    font-weight: 600;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+.booking-form {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+.booking-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+.booking-form input[type="text"],
+.booking-form input[type="date"] {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    font-family: var(--font-family);
+}
+
+/* --- Unavailable Card Styles --- */
+.card-unavailable {
+    /* Make it look faded and "dark" */
+    opacity: 0.6;
+    filter: grayscale(90%);
+    transition: none;
+}
+
+.card-unavailable:hover {
+    /* Stop the card from lifting up on hover */
+    transform: none; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the "Booked" button */
+.card-unavailable .btn-secondary {
+    background-color: #555;
+    border-color: #555;
+    color: var(--text-muted);
+    cursor: not-allowed;
+    pointer-events: none; /* This disables the click */
+}
+
+/* --- Admin Panel Styles --- */
+
