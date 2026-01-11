@@ -81,28 +81,26 @@ PHP
 
 📸 Screenshots
 
-    Note: Replace these placeholders with actual screenshots from your project to make the GitHub page pop!
-
-    Homepage:
+Homepage:
     <img width="809" height="1174" alt="image" src="https://github.com/user-attachments/assets/08cec796-8f89-4a1b-900a-626adf9b2aae" />
 
-    Fleet Page:
+Fleet Page:
     <img width="917" height="868" alt="image" src="https://github.com/user-attachments/assets/ec335120-1abb-48c8-a0f5-8d81513c0744" />
 
-    Admin Dashboard:
+Admin Dashboard:
     <img width="875" height="424" alt="image" src="https://github.com/user-attachments/assets/a8353e23-692d-4d34-8dfe-2c297e95b4ac" />
     <img width="923" height="209" alt="image" src="https://github.com/user-attachments/assets/03f15779-740e-467f-9fa5-34427fec6fb2" />
 
-    Cars Booking:
+ Cars Booking:
     <img width="923" height="448" alt="image" src="https://github.com/user-attachments/assets/df997fbb-8e1a-4151-85de-036ef2f613e5" />
 
-    Payment Section:
+Payment Section:
     <img width="923" height="574" alt="image" src="https://github.com/user-attachments/assets/f5179581-5401-43b0-ae2a-133cd666f91d" />
 
-    Edit Cars:
+ Edit Cars:
     <img width="816" height="721" alt="image" src="https://github.com/user-attachments/assets/a3459c5f-46a6-4b24-94c2-e221a063467b" />
 
-    DATABASE:
+DATABASE:
     <img width="923" height="633" alt="image" src="https://github.com/user-attachments/assets/3b7f5547-b75e-457b-880a-506e6747488b" />
     <img width="923" height="160" alt="image" src="https://github.com/user-attachments/assets/fcdb62d5-ec6f-437e-8a9a-2dd9a4c50f93" />
 
